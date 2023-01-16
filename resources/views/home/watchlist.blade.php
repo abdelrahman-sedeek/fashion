@@ -6,7 +6,11 @@
     <div class="header d-flex justify-content-center mb-5 " >
       <h5>watchlist items</h5>
     </div>
-   
+        @if (session()->has('message'))
+        <div class="alert alert-success" role="alert">
+            {{session()->get('message')}}
+        </div>
+        @endif
         @if ($watchlist_count==0)
             <div class=" alert_message d-flex justify-content-center " style="font-family: cursive;
             font-size: x-large">
@@ -65,7 +69,10 @@
 
                 </div>
                 <div class="actions mt-2">
-                  <a href="{{route('add_watchlist',$show->id)}}"><i class="fa-regular fa-heart">      </i></a>
+                  <form action="{{route('delete_watchlist',$show->id)}}" method="POST" >
+                    @csrf
+                    <a onclick="this.closest('form').submit(); return false;"><i class="fa-regular fa-heart"></i></a>
+                  </form>
                   <a href=""><i class="fa-solid fa-share-nodes">  </i></a>
                   <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
 

@@ -22,6 +22,15 @@ class userController extends Controller
         return view('home.store',compact('show_product'));
         
     }
+    public function redicert()
+    {
+        if(Auth::user()->userType=='admin')
+        {
+            return redirect()->route('dashboard');
+        }
+        else
+        return redirect()->route('home');
+    }
     public function add_category(Request $request)
     {
         $data=new category;
@@ -30,6 +39,7 @@ class userController extends Controller
         return redirect()->back();
         
     }
+    // **********************cart*********************
     public function add_cart(product $product,Request $request)
     {
        
@@ -59,17 +69,18 @@ class userController extends Controller
         return view('home.cart',compact('cart','cart_count'));
 
     }    
-    public function redicert()
+    
+    public function delete_cart(cart $cart)
     {
-        if(Auth::user()->userType=='admin')
+        if($cart->user_id != Auth::user()->id)
         {
-            return redirect()->route('dashboard');
+            abort(403, 'Unauthorized action.');
+
         }
-        else
-        return redirect()->route('home');
+        $cart->delete();
+        return redirect()->back()->with('message', 'product deleted from cart sucessfully');
     }
-    
-    
+    // ***********************end of cart*********************************
      
     public function product_detail($id)
     {
@@ -77,7 +88,7 @@ class userController extends Controller
         return view('home.productDetail',compact('detail'));
     }
 
-    
+    // ============================watchlist-------------------------------------
     public function add_watchlist(product $product)
     {
 
@@ -87,9 +98,8 @@ class userController extends Controller
             'user_id'=>Auth::user()->id,
             'watchlist'=>true,
 
-            
         ]);
-        return view('home.watchlist');
+        return redirect()->back();
     }
 
     public function show_watchlist(Request $request)
@@ -102,49 +112,27 @@ class userController extends Controller
         return view('home.watchlist',compact('watchlist','watchlist_count'));
 
     }    
-    
-    public function delete_cart(cart $cart)
+    public function delete_watchlist(cart $cart)
     {
         if($cart->user_id != Auth::user()->id)
         {
             abort(403, 'Unauthorized action.');
 
         }
-        $cart->delete();
-        return redirect()->back()->with('message', 'product deleted from cart sucessfully');
+        
+        if($cart->watchlist=true)
+        {
+            $cart->delete();
+        }
+    
+        return redirect()->back()->with('message', ' item deleted  sucessfully');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function cheakout(Request $request)
     {
-        //
+         $cart = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
+         $cart_count = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->count();
+        return view('home.cheakout',compact('cart','cart_count'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  
 }

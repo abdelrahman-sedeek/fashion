@@ -1,5 +1,6 @@
 @include('home.inc.header')
 @include('home.inc.navbar')
+
 <section class="h-100 h-custom" style="background-color: #eee;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -16,16 +17,16 @@
                 <div class="col-lg-7">
                   <h5 class="mb-3"><a href="{{route('home')}}" class="text-body"><i
                         class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
-                  <hr>
-  
-                 
-                  <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                      <p class="mb-1">Shopping cart</p>
-                      <p class="mb-0">You have {{$cart_count}} items in your cart</p>
-                    </div>
-                    
-                    </div>
+                        
+                        <hr class="mb-3" >
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div>
+                                <h3 class="mt-1 font-3xl font-weight-bold" >order informantion</h3>
+                            </div>
+                            
+                </div>
+                        <hr class="mb-3" >
                     <?php $subtotal=0; 
                           $tax=0;
                           $total=0;
@@ -120,8 +121,7 @@
                       <form action="{{route('cheakout')}}" method="get">
                         <button type="submit" class="btn btn-info btn-block btn-lg">
                           <div class="d-flex justify-content-between">
-                            <span>${{$total}} </span>
-                            <span>  Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                            <span>  place order <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                           </div>
                         </button>
                         </form>
@@ -141,4 +141,6 @@
       </div>
     </div>
   </section>
-  @include('home.inc.footer')
+
+
+@include('home.inc.footer')

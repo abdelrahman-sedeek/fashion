@@ -29,9 +29,12 @@ Route::middleware('auth')->group(function () {
     route::post('/add_cart/{product}',[userController::class ,'add_cart'])->name('add_cart');
     route::post('/delete_cart/{cart}',[userController::class ,'delete_cart'])->name('delete_cart');
     route::get('/my_cart',[userController::class ,'show_cart'])->name('show_cart');
+    
     route::get('/add_watchlist/{product}',[userController::class ,'add_watchlist'])->name('add_watchlist');
     route::get('/show_watchlist',[userController::class ,'show_watchlist'])->name('show_watchlist');
-
+    route::post('/delete_watchlist/{cart}',[userController::class ,'delete_watchlist'])->name('delete_watchlist');
+    
+    route::get('/cheakout',[userController::class ,'cheakout'])->name('cheakout');
 });
 
 
