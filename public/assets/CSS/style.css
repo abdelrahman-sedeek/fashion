@@ -1,0 +1,176 @@
+.mainNav 
+{
+    /* position: fixed !important; */
+    width: 100%;
+}
+.mainNav .logo
+{
+ color: white;
+ font-size:50px;
+ font-family: 'Alex Brush';
+} 
+.carousel img
+{
+    max-height: 650px;
+}
+.carousel .carousel-item
+{
+    position: relative;
+}
+.carousel .carousel-caption
+{
+    /* margin: auto ; */
+    max-height: 150px;
+    max-width: 400px;
+    background-color: #e13ed7;
+    opacity: 0.6;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+.secendSection .menCard  img
+{
+    max-height: 450px;
+}
+
+/* .featuredItems .itemBar li
+{
+    list-style: none;
+} */
+.featuredItems .header h5
+{
+    padding: 0px 15px ;
+    position: relative;
+
+}
+.featuredItems .header h5::after
+{
+    content: " ";
+    display: block;
+    width: 200px;
+    height: 2px;
+    opacity: 0.6;
+    background: gray;
+    border: #e13ed7;
+    left: 100% ;
+    top: 50%;
+    position: absolute;
+}
+.featuredItems .header h5::before
+{
+    content: " ";
+    display: block;
+    width: 200px;
+    height: 2px;
+    opacity: 0.6;
+    background: gray;
+    border: #e13ed7;
+    right: 100% ;
+    top: 50%;
+    position: absolute;
+}
+.featuredItems .itemCards
+{
+    
+}
+.featuredItems .itemBar li
+{
+    list-style: none;
+}
+.featuredItems .product_card 
+{
+    margin-bottom: 10px;
+    height: 400px;
+}
+.featuredItems .itemCards .image 
+{
+    /* background: black; */
+    height: 300px;
+    align-items: center;
+    box-shadow: 1px 1px  5px gray;
+}
+.featuredItems .itemCards .image .prod_image i
+{
+    font-size: 50px;
+    z-index: 1111111111111;
+    position: absolute;
+    top: 28%;
+    right: 41%;
+    display: none;
+    color: black;
+}
+.featuredItems .itemCards .image .prod_image:hover 
+{
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.5s;
+    
+}
+.featuredItems .itemCards .image .prod_image:hover i
+{
+    transition: 0.5s;
+    display: block;
+}
+
+.featuredItems .itemCards .image img
+{
+    position: relative;  
+     
+    padding: 5px;
+    margin: auto;
+    align-items: center;
+    height: 300px;
+    max-height: 300px;
+
+}
+.featuredItems .card 
+{
+    position: relative;
+}
+.featuredItems .card .price
+{
+    padding: 5px;
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+.featuredItems .card .offer
+{
+    padding: 15px;
+    border-radius: 50%;
+    
+    color: white;
+    background-color: #e13ed7;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.featuredItems .card .rate .star
+{
+    color: #e13ed7;
+}
+.featuredItems .card .actions i
+{
+    color: rgb(102, 100, 100);
+}
+.featuredItems .card .actions i:hover
+{
+    color: #e13ed7;
+}
+.after_discount
+{
+    color: red;
+    text-decoration: line-through;
+    font-size:large;
+}
+.before_discount
+{
+    font-size: xx-large;
+}
