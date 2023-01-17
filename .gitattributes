@@ -1,6 +1,6 @@
 * text=auto
 
-*.blade.php diff=php
+*.blade.php diff=laravel
 *.css diff=css
 *.html diff=html
 *.md diff=markdown
