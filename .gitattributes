@@ -12,4 +12,4 @@ CHANGELOG.md export-ignore
 # *.PHP linguist-detectable=true  
 # *.js linguist-detectable=true
 # *.HTML linguist-detectable=false
-# *.Blade.PHP linguist-vendored=false    
+*.Blade.PHP linguist-vendored=false    
