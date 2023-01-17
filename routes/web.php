@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     
     route::get('/add_watchlist/{product}',[userController::class ,'add_watchlist'])->name('add_watchlist');
     route::get('/show_watchlist',[userController::class ,'show_watchlist'])->name('show_watchlist');
-    route::post('/delete_watchlist/{cart}',[userController::class ,'delete_watchlist'])->name('delete_watchlist');
+    route::post('/delete_watchlist/{cart}',[userController::class ,'delete_cart'])->name('delete_watchlist');
     
     route::get('/cheakout',[userController::class ,'cheakout'])->name('cheakout');
 });

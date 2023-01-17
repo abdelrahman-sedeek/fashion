@@ -69,7 +69,7 @@ class userController extends Controller
         return view('home.cart',compact('cart','cart_count'));
 
     }    
-    
+    //delete cart and watchlist
     public function delete_cart(cart $cart)
     {
         if($cart->user_id != Auth::user()->id)
@@ -78,7 +78,7 @@ class userController extends Controller
 
         }
         $cart->delete();
-        return redirect()->back()->with('message', 'product deleted from cart sucessfully');
+        return redirect()->back()->with('message', 'item deleted sucessfully');
     }
     // ***********************end of cart*********************************
      
@@ -112,22 +112,7 @@ class userController extends Controller
         return view('home.watchlist',compact('watchlist','watchlist_count'));
 
     }    
-    public function delete_watchlist(cart $cart)
-    {
-        if($cart->user_id != Auth::user()->id)
-        {
-            abort(403, 'Unauthorized action.');
-
-        }
-        
-        if($cart->watchlist=true)
-        {
-            $cart->delete();
-        }
     
-        return redirect()->back()->with('message', ' item deleted  sucessfully');
-    }
-
     public function cheakout(Request $request)
     {
          $cart = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
