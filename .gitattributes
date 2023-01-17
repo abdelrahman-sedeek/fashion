@@ -11,5 +11,4 @@
 # .styleci.yml export-ignore
 *.PHP linguist-detectable=true  
 *.js linguist-detectable=true  
-*.html linguist-detectable=true  
-*.blade linguist-detectable=false    
+*.blade linguist-vendored=false    
