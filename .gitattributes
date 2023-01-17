@@ -1,15 +1,15 @@
-# * text=auto
+* text=auto
 
-# *.blade.php diff=html
-# *.css diff=css
-# *.html diff=html
-# *.md diff=markdown
-# *.php diff=php
+*.blade.php diff=php
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
 
-# /.github export-ignore
-# CHANGELOG.md export-ignore
-# .styleci.yml export-ignore
-*.PHP linguist-detectable=true  
-*.js linguist-detectable=true
-*.HTML linguist-detectable=false
-*.Blade linguist-vendored=false    
+/.github export-ignore
+CHANGELOG.md export-ignore
+.styleci.yml export-ignore
+# *.PHP linguist-detectable=true  
+# *.js linguist-detectable=true
+# *.HTML linguist-detectable=false
+# *.Blade.PHP linguist-vendored=false    
