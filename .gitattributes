@@ -10,8 +10,7 @@
 # CHANGELOG.md export-ignore
 # .styleci.yml export-ignore
 *.PHP linguist-detectable=true  
-*.js linguist-detectable=false  
-
+*.js linguist-detectable=false 
 *.html linguist-detectable=false  
 *.xml linguist-detectable=false   
 
