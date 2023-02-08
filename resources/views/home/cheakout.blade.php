@@ -40,39 +40,45 @@
                    $tax=$subtotal*1/100;
                    $total=$subtotal+$tax
                    @endphp
+                   @endforeach
                  
                     
                   <div class="card mb-3">
                     <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div>
-                            <img
-                              src="images/{{$cart->product->image}}"
-                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                      <div class="d-flex justify-content-between ">
+                   
+                        <form action="" method="get">
+                        <div class="row mb-3">
+                          <div class="col ">
+                            <label class="form-label" >Name</label>
+                            <input type="text" id="hi" name="name" value="{{$cart->user->name}}" class="form-control w-100"  >
                           </div>
-                          <div class="ms-3">
-                            <h5>{{$cart->product->product_name}}</h5>
-                            <p class="small mb-0">{{$cart->product->discription}}</p>
+                          <div class="col">
+                            <label class="form-label" >Phone</label>
+                            <input type="text" name="phone" value="{{$cart->user->phone}}"  class="form-control"  >
                           </div>
                         </div>
-                        <div class="d-flex flex-row align-items-center">
-                          <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">{{$cart->quantity}}</h5>
+                        <div class="mb-3">
+                          <label for="formGroupExampleInput" class="form-label">address</label>
+                          <input type="text" name="address"  value="{{$cart->user->address}}" class="form-control border-gray-90" id="formGroupExampleInput" >
+                        </div>
+                        <div class="mb-3">
+                          <label for="formGroupExampleInput2" class="form-label">Email</label>
+                          <input type="email" name="email" value="{{$cart->user->email}}"  class="form-control" id="formGroupExampleInput2" >
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col ">
+                            <label class="pieLabel " >city</label>
+                            <input type="text" name="city" class="form-control w-100" value="{{$cart->user->city}}" aria-label="First name">
                           </div>
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">${{$cart->total_price}}</h5>
+                          <div class="col">
+                            <label class="pieLabel " >country</label>
+                            <input type="text" name="country" class="form-control" value="{{$cart->user->country}}" aria-label="Last name">
                           </div>
-                          <form action="{{route('delete_cart',$cart->id)}}" method="post">
-                            @csrf
-                            <a onclick="this.closest('form').submit(); return false;" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-
-                          </form>
                         </div>
                       </div>
                     </div>
                   </div>
-                  @endforeach
                 
                 </div>
                 <div class="col-lg-5">
@@ -118,13 +124,13 @@
                         <p class="mb-2">Total(Incl. taxes)</p>
                         <p class="mb-2">${{$total}}</p>
                       </div>
-                      <form action="{{route('cheakout')}}" method="get">
+                     
                         <button type="submit" class="btn btn-info btn-block btn-lg">
                           <div class="d-flex justify-content-between">
                             <span>  place order <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                           </div>
                         </button>
-                        </form>
+                    </form>
   
                     </div>
                   </div>

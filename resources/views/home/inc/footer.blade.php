@@ -19,6 +19,25 @@
         var filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
       });
+      $.getJSON("{{route('get_order')}}", function (data) 
+        {
+          $("#hi").val('hi')
+        }
+        // console.log(data.total_price); 
+        );
+      // $.ajax({
+      //   type: "GET",
+      //   url: "{{route('get_order')}}",
+      //   data: 
+      //   {
+          
+      //     'id':$('#hi').val(),
+      //   },
+      //   dataType: "dataType",
+      //   success: function (response) {
+          
+      //   }
+      // });
     </script>
 </body>
 </html>

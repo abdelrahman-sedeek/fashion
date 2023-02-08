@@ -39,11 +39,16 @@ class userController extends Controller
         return redirect()->back();
         
     }
+    public function product_detail($id)
+    {
+        $detail=product::find($id);
+        return view('home.productDetail',compact('detail'));
+    }
     // **********************cart*********************
     public function add_cart(product $product,Request $request)
     {
-       
-       
+        
+        
         $total_price = $product->discount_price != null ?($product->product_price -$product->discount_price) * $request->OrderQuantity :
         $product->product_price  * $request->OrderQuantity ;
         
@@ -58,14 +63,14 @@ class userController extends Controller
         
         return redirect()->back()->with('message','product added to cart sucessfully');
         
-       
+        
     }
     public function show_cart(Request $request)
     {
         
         $cart = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
         $cart_count = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->count();
-
+        
         return view('home.cart',compact('cart','cart_count'));
 
     }    
@@ -75,18 +80,20 @@ class userController extends Controller
         if($cart->user_id != Auth::user()->id)
         {
             abort(403, 'Unauthorized action.');
-
+            
         }
         $cart->delete();
         return redirect()->back()->with('message', 'item deleted sucessfully');
     }
+    public function cheakout(Request $request)
+    {
+        $cart = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
+        $cart_count = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->count();
+       
+        return view('home.cheakout',compact('cart','cart_count'));
+    }
     // ***********************end of cart*********************************
      
-    public function product_detail($id)
-    {
-        $detail=product::find($id);
-        return view('home.productDetail',compact('detail'));
-    }
 
     // ============================watchlist-------------------------------------
     public function add_watchlist(product $product)
@@ -108,16 +115,42 @@ class userController extends Controller
         $watchlist = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',true)->get();
         $watchlist_count = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist', true)->count();
         
-
+        
         return view('home.watchlist',compact('watchlist','watchlist_count'));
-
+        
     }    
+    // ----------------------------------- end of watchlist--------------------------------------->
+
+
+    // ==================================== start of order =======================================>
     
-    public function cheakout(Request $request)
+    public function add_order(order $order,Request $request)
     {
-         $cart = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
-         $cart_count = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->count();
-        return view('home.cheakout',compact('cart','cart_count'));
+        
+        // $order = order::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
+        $validated = $request->validate([
+            'name' =>'required |max:100' ,
+            'phone' => 'required |numeric',
+            'address' => 'required',
+            'email' => '',
+            'city' => 'required',
+            'country' => 'required ',
+            
+            
+        ]);  
+        order::Create([
+            // 'name'=>$order->user->name,
+            // 'user_id'=>Auth::user()->id,
+            // 'address'=>$order->user->address,
+            // 'city'=>$order->city,
+            // 'country'=>$order->country,
+            
+            
+        ]);
+        
+        return redirect()->back()->with('message','product added to cart sucessfully');
+        
+        
     }
   
 }
