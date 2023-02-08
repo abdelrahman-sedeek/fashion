@@ -1,11 +1,16 @@
 * text=auto
 
-*.blade.php diff=html
-*.css diff=css
-*.html diff=html
-*.md diff=markdown
-*.php diff=php
+# *.blade.php diff=laravel
+# *.css diff=css
+# *.html diff=html
+# *.md diff=markdown
+# *.php diff=php
 
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+# /.github export-ignore
+# CHANGELOG.md export-ignore
+# .styleci.yml export-ignore
+*.PHP linguist-detectable=true  
+*.js linguist-detectable=false 
+*.html linguist-detectable=false  
+*.xml linguist-detectable=false   
+
