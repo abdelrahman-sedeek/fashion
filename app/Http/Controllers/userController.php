@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\category;
 use App\Models\order;
+use App\Models\OrderItems;
 use App\Models\product;
 
 class userController extends Controller
@@ -41,8 +42,8 @@ class userController extends Controller
     }
     public function product_detail($id)
     {
-        $detail=product::find($id);
-        return view('home.productDetail',compact('detail'));
+        $product=product::find($id);
+        return view('home.productDetail',compact('product'));
     }
     // **********************cart*********************
     public function add_cart(product $product,Request $request)
@@ -87,10 +88,12 @@ class userController extends Controller
     }
     public function cheakout(Request $request)
     {
-        $cart = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
-        $cart_count = cart::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->count();
+        $subtotal = Auth::user()->cart()->where('watchlist',false)->sum('total_price');
+        $cart_count = Auth::user()->cart()->where('watchlist',false)->sum('quantity');
+        
+        
        
-        return view('home.cheakout',compact('cart','cart_count'));
+        return view('home.cheakout',compact('subtotal','cart_count'));
     }
     // ***********************end of cart*********************************
      
@@ -124,10 +127,10 @@ class userController extends Controller
 
     // ==================================== start of order =======================================>
     
-    public function add_order(order $order,Request $request)
+    public function add_order(Request $request)
     {
         
-        // $order = order::with('product')->where('user_id', Auth::user()->id)->where('watchlist',false)->get();
+        
         $validated = $request->validate([
             'name' =>'required |max:100' ,
             'phone' => 'required |numeric',
@@ -136,18 +139,51 @@ class userController extends Controller
             'city' => 'required',
             'country' => 'required ',
             
-            
-        ]);  
-        order::Create([
-            // 'name'=>$order->user->name,
-            // 'user_id'=>Auth::user()->id,
-            // 'address'=>$order->user->address,
-            // 'city'=>$order->city,
-            // 'country'=>$order->country,
-            
-            
         ]);
+
+        $order_items=[];
         
+        $cart=cart::where('user_id',auth()->user()->id)->where('watchlist',false)->with('product')->get(); 
+        if(!$cart->count())
+        {
+            return redirect()->back()->with('message', 'cart is empty');
+        }
+        foreach($cart as $item)
+        {
+            if($item->quantity>$item->product->quantity)
+            {
+                return redirect()->back()->with('message', 'quantity not enough');
+    
+            }
+
+        }
+        $order =order::Create([
+            'discount'=>0,
+            'state'=>'processing',
+            'zip'=>'12345',
+            'tax'=>$cart->sum('total_price')*1/100,
+            'subtotal'=>$cart->sum('total_price'),
+            'total_price'=>$cart->sum('total_price')*1/100 +$cart->sum('total_price'),
+            'user_id'=>Auth::user()->id,
+            'city'=>$request->city,
+            'country'=>$request->country,
+             
+        ]);
+        foreach ($cart as $item) {
+            $order_items[]=[
+                'order_id'=>$order->id,
+                'product_id'=>$item->product_id,
+                'quantity'=>$item->quantity,
+                'total_price'=>$item->total_price,
+                "created_at" =>  \Carbon\Carbon::now(), # new \Datetime()
+                "updated_at" => \Carbon\Carbon::now(),  # new \Datetime()
+            ];
+            $product=$item->product;
+            $product->quantity=$item->product->quantity - $item->quantity;
+            $product->save();            
+        }
+        OrderItems::insert($order_items);
+        cart::where('user_id',auth()->user()->id)->where('watchlist',false)->delete();      
         return redirect()->back()->with('message','product added to cart sucessfully');
         
         

@@ -27,53 +27,48 @@
                             
                 </div>
                         <hr class="mb-3" >
-                    <?php $subtotal=0; 
-                          $tax=0;
-                          $total=0;
-                   ?>
-                    @foreach ($cart as $cart )
+                    
                   
                     
                     @php 
-                    
-                   $subtotal+=$cart->total_price;
                    $tax=$subtotal*1/100;
                    $total=$subtotal+$tax
                    @endphp
-                   @endforeach
+                  
                  
                     
                   <div class="card mb-3">
                     <div class="card-body">
                       <div class="d-flex justify-content-between ">
                    
-                        <form action="" method="get">
-                        <div class="row mb-3">
+                        <form action="{{route('add_order')}}" method="post">
+                          @csrf
+                          <div class="row mb-3">
                           <div class="col ">
                             <label class="form-label" >Name</label>
-                            <input type="text" id="hi" name="name" value="{{$cart->user->name}}" class="form-control w-100"  >
+                            <input type="text" id="hi" name="name" value="{{Auth::user()->name}}" class="form-control w-100"  >
                           </div>
                           <div class="col">
                             <label class="form-label" >Phone</label>
-                            <input type="text" name="phone" value="{{$cart->user->phone}}"  class="form-control"  >
+                            <input type="text" name="phone" value="{{Auth::user()->phone}}"  class="form-control"  >
                           </div>
                         </div>
                         <div class="mb-3">
                           <label for="formGroupExampleInput" class="form-label">address</label>
-                          <input type="text" name="address"  value="{{$cart->user->address}}" class="form-control border-gray-90" id="formGroupExampleInput" >
+                          <input type="text" name="address"  value="{{Auth::user()->address}}" class="form-control border-gray-90" id="formGroupExampleInput" >
                         </div>
                         <div class="mb-3">
                           <label for="formGroupExampleInput2" class="form-label">Email</label>
-                          <input type="email" name="email" value="{{$cart->user->email}}"  class="form-control" id="formGroupExampleInput2" >
+                          <input type="email" name="email" value="{{Auth::user()->email}}"  class="form-control" id="formGroupExampleInput2" >
                         </div>
                         <div class="row mb-3">
                           <div class="col ">
                             <label class="pieLabel " >city</label>
-                            <input type="text" name="city" class="form-control w-100" value="{{$cart->user->city}}" aria-label="First name">
+                            <input type="text" name="city" class="form-control w-100" value="{{Auth::user()->city}}" aria-label="First name">
                           </div>
                           <div class="col">
                             <label class="pieLabel " >country</label>
-                            <input type="text" name="country" class="form-control" value="{{$cart->user->country}}" aria-label="Last name">
+                            <input type="text" name="country" class="form-control" value="{{Auth::user()->country}}" aria-label="Last name">
                           </div>
                         </div>
                       </div>

@@ -24,4 +24,12 @@ class product extends Model
     {
         return $this->hasMany(cart::class);
     }
+    public function stock()
+    {
+        if($this->quantity!=0)
+        {
+            return true;
+        }
+            return false;
+    }
 }

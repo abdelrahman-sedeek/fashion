@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     
     route::get('/cheakout',[userController::class ,'cheakout'])->name('cheakout');
     route::get('/get_order',[userController::class ,'cheakout'])->name('get_order');
-    route::post('/add_order/{order}',[userController::class ,'add_order'])->name('add_order');
+    route::post('/add_order',[userController::class ,'add_order'])->name('add_order');
 
 });
 

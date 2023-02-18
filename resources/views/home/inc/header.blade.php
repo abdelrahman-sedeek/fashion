@@ -54,11 +54,19 @@
                               </li>
                               
                               <a class="nav-link active" style="color:#e13ed7;" aria-current="page" href="{{route('show_cart')}}">
-                                  <i class="fa-solid fa-cart-shopping"></i> my cart
-                              </a>
-                              <x-app-layout>
-                            </x-app-layout>
-                            @else
+                                <i class="fa-solid fa-cart-shopping"></i> my cart
+                            </a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                               
+                                    <a class="nav-link " href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); this.closest('form').submit();"> Logout</a>
+                                
+                            </form>
+                            
+                          
+                              @else
+                          
                             <li class="nav-item mx-2">
                                 <a class="nav-link " aria-current="page" href="{{route('login')}}">login</a>
                             </li>

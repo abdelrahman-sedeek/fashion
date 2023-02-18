@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class order extends Model
 {
-    protected $guarded = ' ';
+    protected $guarded = '';
     use HasFactory;
-    public function product()
+   
+    public function OrderItems()
     {
-        return $this->belongsToMany(product::class,'orders_products');
+        return $this->hasMany(OrderItems::class);
     
     }
 }
