@@ -19,10 +19,10 @@ class userController extends Controller
     public function index()
     {
         $show_product=product::paginate(8);
-        
         return view('home.store',compact('show_product'));
         
     }
+
     public function redicert()
     {
         if(Auth::user()->userType=='admin')
@@ -144,6 +144,7 @@ class userController extends Controller
         $order_items=[];
         
         $cart=cart::where('user_id',auth()->user()->id)->where('watchlist',false)->with('product')->get(); 
+        // $product=cart::where('product_id',product())->where('watchlist',false)->with('product')->get(); 
         if(!$cart->count())
         {
             return redirect()->back()->with('message', 'cart is empty');
@@ -167,8 +168,9 @@ class userController extends Controller
             'user_id'=>Auth::user()->id,
             'city'=>$request->city,
             'country'=>$request->country,
-             
+            
         ]);
+      
         foreach ($cart as $item) {
             $order_items[]=[
                 'order_id'=>$order->id,
@@ -187,6 +189,12 @@ class userController extends Controller
         return redirect()->back()->with('message','product added to cart sucessfully');
         
         
+    }
+    public function show_orders()
+    {
+        $order=order::with('user')->where('user_id',Auth::user()->id)->get();
+       
+        return view('home.orders',compact('order'));
     }
   
 }

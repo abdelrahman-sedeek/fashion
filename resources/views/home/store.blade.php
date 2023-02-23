@@ -8,8 +8,7 @@
         <!-- start of featured items section ----------------------------------->
         @include('home.inc.product')
         <!-- end of featured items section ----------------------------------->
-
-
-
-   
-@include('home.inc.footer')
+        @include('home.inc.banner')
+        @include('home.inc.trending_item')
+        @include('home.inc.fedback')
+        @include('home.inc.footer')

@@ -3,6 +3,10 @@
     /* position: fixed !important; */
     width: 100%;
 }
+.pink-color
+{
+    color: #e13ed7;
+}
 .mainNav .logo
 {
  color: white;
@@ -159,6 +163,14 @@
 .featuredItems .card .actions i
 {
     color: rgb(102, 100, 100);
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid  rgb(102, 100, 100) ; 
+}
+.actions .action-link i
+{
+    /* margin: 50px; */
+    border-radius: 50% ;
 }
 .featuredItems .card .actions i:hover
 {
@@ -173,4 +185,309 @@
 .before_discount
 {
     font-size: xx-large;
+}
+
+
+
+/************************************************** banner **************************************/
+
+
+
+
+
+.offer-section > .banners > div {
+    /* width: 100%; */
+    position: relative;
+    padding: 0;
+}
+.offer-section .banners div img {
+    width: 100%;
+    height: auto;
+}
+.offer-section .overlay {
+    background-color: rgb(3, 0, 1);
+    opacity: 0.29;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+}
+.offer-section .text-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 6;
+    color: white;
+    overflow: hidden;
+}
+.offer-section .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid transparent;
+
+    border-bottom: 2vw solid #fff;
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+    z-index: 6;
+}
+.offer-section .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid transparent;
+
+    border-top: 2vw solid #fff;
+    position: absolute;
+    top: 0;
+    right: 20%;
+    z-index: 6;
+}
+.offer-section .banner-1 .text-box .text span:nth-child(1) {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Encode Sans", sans-serif;
+}
+
+.offer-section .banner-1 .text-box .text span:nth-child(2) {
+    font-size: 20px;
+    /* text-align: right; */
+    transform: rotate(-90deg);
+    display: inline-block;
+    padding-left: 15px;
+}
+.offer-section .banner-1 .text-box .text span:nth-child(4) {
+    font-size: 20px;
+    font-family: "Encode Sans", sans-serif;
+}
+@media (min-width: 576px) {
+    .offer-section .banner-1 .text-box .text span:nth-child(1) {
+        font-size: 72px;
+    }
+
+    .offer-section .banner-1 .text-box .text span:nth-child(2) {
+        font-size: 40px;
+        padding-left: 20px;
+    }
+    .offer-section .banner-1 .text-box .text span:nth-child(4) {
+        font-size: 40px;
+    }
+}
+@media (min-width: 768px) {
+    .offer-section .banner-1 .text-box .text span:nth-child(1) {
+        font-size: 55px;
+    }
+
+    .offer-section .banner-1 .text-box .text span:nth-child(2) {
+        font-size: 25px;
+        padding-left: 20px;
+    }
+    .offer-section .banner-1 .text-box .text span:nth-child(4) {
+        font-size: 25px;
+    }
+}
+@media (min-width: 992px) {
+    .offer-section .banner-1 .text-box .text span:nth-child(1) {
+        font-size: 60px;
+    }
+
+    .offer-section .banner-1 .text-box .text span:nth-child(2) {
+        font-size: 30px;
+        padding-left: 20px;
+    }
+    .offer-section .banner-1 .text-box .text span:nth-child(4) {
+        font-size: 30px;
+    }
+}
+@media (min-width: 1200px) {
+    .offer-section .banner-1 .text-box .text span:nth-child(1) {
+        font-size: 72px;
+    }
+
+    .offer-section .banner-1 .text-box .text span:nth-child(2) {
+        font-size: 40px;
+        padding-left: 20px;
+    }
+    .offer-section .banner-1 .text-box .text span:nth-child(4) {
+        font-size: 40px;
+    }
+}
+.offer-section .banner-2 .text-box span:nth-child(1) {
+    display: block;
+    font-size: 12px;
+    font-family: "Encode Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.offer-section .banner-2 .text-box span:nth-child(2) {
+    font-size: 30px;
+    font-family: "Encode Sans", sans-serif;
+    color: #d03bc6;
+    font-weight: 600;
+}
+.offer-section .banner-2 .text-box span:nth-child(3) {
+    font-size: 30px;
+    font-family: "Encode Sans", sans-serif;
+
+    font-weight: 600;
+}
+@media (min-width: 576px) {
+    .offer-section .banner-2 .text-box span:nth-child(1) {
+        font-size: 26px;
+        letter-spacing: 5px;
+    }
+    .offer-section .banner-2 .text-box span:nth-child(2),
+    .offer-section .banner-2 .text-box span:nth-child(3) {
+        font-size: 55px;
+    }
+}
+@media (min-width: 768px) {
+    .offer-section .banner-2 .text-box span:nth-child(1) {
+        font-size: 16px;
+        letter-spacing: 5px;
+    }
+    .offer-section .banner-2 .text-box span:nth-child(2),
+    .offer-section .banner-2 .text-box span:nth-child(3) {
+        font-size: 35px;
+    }
+}
+@media (min-width: 992px) {
+    .offer-section .banner-2 .text-box span:nth-child(1) {
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
+    .offer-section .banner-2 .text-box span:nth-child(2),
+    .offer-section .banner-2 .text-box span:nth-child(3) {
+        font-size: 48px;
+        margin-right: 0px;
+    }
+}
+
+
+
+.testimonials-section .banner {
+    position: relative;
+}
+.testimonials-section .banner > img {
+    height: 80vh;
+    object-fit: cover;
+}
+.testimonials-section .text-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 6;
+    color: white;
+    overflow: hidden;
+}
+/* media */
+.testimonials-section .fa-quote-left {
+    color: var(--purble-color);
+    font-size: 30px;
+}
+.testimonials-section p {
+    font-style: italic;
+    font-weight: 300;
+}
+.testimonials-section .ceo {
+    font-family: "Encode Sans", sans-serif;
+    font-size: 16px;
+}
+.testimonials-section .job {
+    font-family: "Encode Sans", sans-serif;
+    font-size: 12.5px;
+    color: rgb(220, 219, 219);
+}
+.ceo_image
+{
+    width: 10%;
+    border-radius: 50%;
+}
+@media (min-width: 576px) {
+    .testimonials-section .fa-quote-left {
+        font-size: 40px;
+    }
+    .testimonials-section p {
+        font-size: 20px;
+    }
+    .testimonials-section .ceo {
+        font-size: 20px;
+    }
+    .testimonials-section .job {
+        font-size: 16.5px;
+    }
+}
+@media (min-width: 992px) {
+    .testimonials-section .fa-quote-left {
+        font-size: 50px;
+    }
+    .testimonials-section p {
+        font-size: 40px;
+    }
+    .testimonials-section .ceo {
+        font-size: 20px;
+    }
+    .testimonials-section .job {
+        font-size: 16.5px;
+    }
+}
+/* Start Footer */
+.footer {
+    background-color: #1d1d1d;
+    color: #9f9d9d;
+    overflow: hidden;
+}
+.footer .footer-title {
+    color: white;
+}
+.footer .list .list-item {
+    margin-bottom: 5px;
+}
+.footer .list .item {
+    color: #8c8c8c;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.footer .list .item:hover {
+    color: var(--purble-color);
+    font-weight: 600;
+}
+.footer .icons svg {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #9f9d9d;
+}
+
+
+.footer .icons .fa-facebook-square:hover {
+    color: #4267b2;
+}
+.footer .icons .fa-twitter-square:hover {
+    color: #1da1f2;
+}
+.footer .icons .fa-youtube:hover {
+    color: #ff0000;
+}
+.footer .icons .fa-vimeo:hover {
+    color: #1ab7ea;
+}
+footer .copyright {
+    background-color: black;
+    color: #9f9d9d;
+    overflow: hidden;
+}
+footer .copyright .money img {
+    filter: grayscale(1);
+    width: auto;
+    height: 50px;
+}
+footer .copyright .money img:hover {
+    filter: none;
 }

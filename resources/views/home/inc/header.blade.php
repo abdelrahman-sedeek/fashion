@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="assets/CSS/all.min.css">
     <link rel="stylesheet" href="assets/CSS/style.css">
     <link rel="stylesheet" href="assets/CSS/bootstrap/bootstrap.min.css">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Finlandica&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
 
@@ -31,7 +32,7 @@
 </head>
 <body>
     <div class="page ">
-        
+      
         
         <div class="navBar ">
             
@@ -46,12 +47,23 @@
                               
                               @auth
                               
-                              <li class="nav-item">
-                                  <a class="nav-link active" aria-current="page" href="#">my account</a>
+                              <div class="dropdown">
+                                <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+
+                                </a>
+                              
+                                <li class="nav-item">
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">my account</a></li>
+                                  <li><a class="dropdown-item" href="{{route('show_watchlist')}}">watchlist</a></li>
+                                  <li><a class="dropdown-item" href="{{route('show_orders')}}">My Orders</a></li>
+                                </ul>
+                              </div>
+                                  
                               </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{route('show_watchlist')}}">watchlist</a>
-                              </li>
+                              
+                             
                               
                               <a class="nav-link active" style="color:#e13ed7;" aria-current="page" href="{{route('show_cart')}}">
                                 <i class="fa-solid fa-cart-shopping"></i> my cart
