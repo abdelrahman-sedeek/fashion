@@ -12,7 +12,10 @@ class OrderItems extends Model
     protected $guarded = '';
     public function order()
     {
-        return $this->belongsToMany(order::class);
-    
+        return $this->belongsTo(order::class);
+    }
+    public function product()
+    {
+        return $this->belongsTo(product::class);
     }
 }

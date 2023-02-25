@@ -6,6 +6,7 @@
         @include('home.inc.slider')
         <!-- end of section section -->
         <!-- start of featured items section ----------------------------------->
+        @yield('index')
         @include('home.inc.product')
         <!-- end of featured items section ----------------------------------->
         @include('home.inc.banner')

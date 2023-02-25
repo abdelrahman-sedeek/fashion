@@ -8,6 +8,7 @@ use App\Models\category;
 use App\Models\order;
 use App\Models\OrderItems;
 use App\Models\product;
+use App\Models\User;
 
 class userController extends Controller
 {
@@ -19,8 +20,16 @@ class userController extends Controller
     public function index()
     {
         $show_product=product::paginate(8);
-        return view('home.store',compact('show_product'));
+        $category=category::all();
+        return view('home.store',compact('show_product','category'));
         
+    }
+    public function search(request $request)
+    {
+        $category=category::all();
+        $search_text=$request->search;
+        $show_product=product::join('categories','category_id','categories.id')->where('product_name','LIKE',"%$search_text%")->orWhere('category_type','LIKE',"$search_text%")->paginate(8);
+        return view('home.search_result',compact('show_product','category','search_text'));
     }
 
     public function redicert()
@@ -135,10 +144,6 @@ class userController extends Controller
             'name' =>'required |max:100' ,
             'phone' => 'required |numeric',
             'address' => 'required',
-            'email' => '',
-            'city' => 'required',
-            'country' => 'required ',
-            
         ]);
 
         $order_items=[];
@@ -161,6 +166,8 @@ class userController extends Controller
         $order =order::Create([
             'discount'=>0,
             'state'=>'processing',
+            'address'=>$request->address,
+            'phone'=>$request->phone,
             'zip'=>'12345',
             'tax'=>$cart->sum('total_price')*1/100,
             'subtotal'=>$cart->sum('total_price'),
@@ -192,9 +199,25 @@ class userController extends Controller
     }
     public function show_orders()
     {
-        $order=order::with('user')->where('user_id',Auth::user()->id)->get();
-       
-        return view('home.orders',compact('order'));
+        $user=User::with(
+            ['order'=>function($query){
+            $query->orderBy('created_at', 'DESC');
+        }])->find(Auth::user()->id);
+        
+        return view('home.orders',compact('user'));
     }
+    public function view_order(order $order)
+    {
+
+        if(!$order->user_id==Auth::user()->id)
+        {
+            return abort(403, 'Unauthorized action.');
+            
+        }
+        $order->load('OrderItems', 'OrderItems.product');
+        return view('home.view_order',compact('order'));
+
+    }
+
   
 }

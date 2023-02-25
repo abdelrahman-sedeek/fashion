@@ -57,10 +57,7 @@
                           <label for="formGroupExampleInput" class="form-label">address</label>
                           <input type="text" name="address"  value="{{Auth::user()->address}}" class="form-control border-gray-90" id="formGroupExampleInput" >
                         </div>
-                        <div class="mb-3">
-                          <label for="formGroupExampleInput2" class="form-label">Email</label>
-                          <input type="email" name="email" value="{{Auth::user()->email}}"  class="form-control" id="formGroupExampleInput2" >
-                        </div>
+                        
                         <div class="row mb-3">
                           <div class="col ">
                             <label class="pieLabel " >city</label>

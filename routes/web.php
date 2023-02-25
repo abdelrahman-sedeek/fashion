@@ -23,6 +23,7 @@ route::get('/',[userController::class ,'index'])->name('home');
 Route::resource('store',userController::class);
 route::get('/redirect',[userController::class ,'redicert'])->name('redirect');
 route::get('/product_details/{id}',[userController::class ,'product_detail'])->name('product_details');
+route::get('/search',[userController::class ,'search'])->name('search');
 
 Route::middleware('auth')->group(function () {
     
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     route::get('/cheakout',[userController::class ,'cheakout'])->name('cheakout');
     route::get('/get_order',[userController::class ,'cheakout'])->name('get_order');
     route::post('/add_order',[userController::class ,'add_order'])->name('add_order');
+    route::get('/view_order/{order}',[userController::class ,'view_order'])->name('view_order');
 
 });
 

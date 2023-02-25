@@ -13,6 +13,38 @@
  font-size:50px;
  font-family: 'Alex Brush';
 } 
+.searchNav .search 
+{
+    position: relative;
+    /* border-radius: 5px; */
+}
+.searchNav .search input {
+    margin: 0 auto;
+    border: auto;
+
+    border-radius: 50px ;
+    padding-right: 10px;
+}
+
+.searchNav .search button
+{
+    color: gray;
+    border-radius: 50px transparent;
+    margin: auto;
+    /* background-color: white; */
+    padding: 10px auto;
+    position: absolute;
+    /* top: 0; */
+    right: 0;
+    text-decoration: none;
+    z-index: 111111111;
+}
+.searchNav .search button:hover {
+    /* color: #fff !important; */
+   
+    text-decoration: none;
+    }
+  
 .carousel img
 {
     max-height: 650px;
@@ -42,13 +74,13 @@
 {
     list-style: none;
 } */
-.featuredItems .header h5
+.featuredItems .header h4
 {
     padding: 0px 15px ;
     position: relative;
 
 }
-.featuredItems .header h5::after
+.featuredItems .header h4::after
 {
     content: " ";
     display: block;
@@ -61,7 +93,7 @@
     top: 50%;
     position: absolute;
 }
-.featuredItems .header h5::before
+.featuredItems .header h4::before
 {
     content: " ";
     display: block;

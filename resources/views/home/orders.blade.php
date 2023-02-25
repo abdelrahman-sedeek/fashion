@@ -3,7 +3,7 @@
 <div class="orders">
 
     <div class="container ">
-        @if (!$order->count())
+        @if (!$user->order->count())
         <div class="text text-center m-5">
             <span class="fs-1  "> You Have No Orders</span>
         </div>
@@ -30,16 +30,16 @@
                               @php
                                   $counter=1;
                               @endphp
-                          @foreach ($order as $orders )
+                          @foreach ($user->order as $orders )
                           <tr>
                               <th scope="row">{{$counter++}}</th>
-                              <td>{{$orders->user->name}}</td>
+                              <td>{{$user->name}}</td>
                               <td>{{$orders->total_price}}</td>
-                              <td>{{$orders->user->address}}</td>
-                              <td>{{$orders->user->phone}}</td>
+                              <td>{{$orders->address}}</td>
+                              <td>{{$orders->phone}}</td>
                               <td>{{$orders->created_at}}</td>
                               <td>{{$orders->state}}</td>
-                              <td><a href=""><i class=" btn btn-primary fas fa-eye"></i></a></td>
+                              <td><a href="{{route('view_order',['order'=>$orders->id])}}"><i class=" btn btn-primary fas fa-eye"></i></a></td>
                               
                             </tr>
                             @endforeach
