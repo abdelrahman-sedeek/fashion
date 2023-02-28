@@ -22,7 +22,7 @@
 
   
     <!-- start of cards -->
-    <div class="itemCards ">
+    <div class="itemCards mb-5 ">
       <div class="cards ">
         <div class="row" id="list">
           <!-- card 1 -->
@@ -71,10 +71,11 @@
                 <div class="actions mt-2">
                   <form action="{{route('delete_watchlist',$show->id)}}" method="POST" >
                     @csrf
+                    <a href=""><i class="fa-solid fa-share-nodes">  </i></a>
+                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
                     <a onclick="this.closest('form').submit(); return false;"><i class="fa-regular fa-heart"></i></a>
                   </form>
-                  <a href=""><i class="fa-solid fa-share-nodes">  </i></a>
-                  <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                  
 
                 </div>
               </div>

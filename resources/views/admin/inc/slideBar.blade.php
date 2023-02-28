@@ -6,7 +6,7 @@
                     <li class="active">
                         <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title">UI elements</li><!-- /.menu-title -->
+                    <li class="menu-title"></li><!-- /.menu-title -->
                     <li class=" ">
                         <a href="{{url('category')}}" > <i class="menu-icon fa fa-cogs"></i>category</a>
                         {{-- <ul class="sub-menu children dropdown-menu"> 
@@ -31,11 +31,8 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
-                        </ul>
+                        <a href="{{route('all_orders')}}" > <i class="menu-icon fa fa-th"></i>Oredrs</a>
+                       
                     </li>
 
                     <li class="menu-title">Icons</li><!-- /.menu-title -->

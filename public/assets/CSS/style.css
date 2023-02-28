@@ -7,10 +7,16 @@
 {
     color: #e13ed7;
 }
-.mainNav .logo
+ .logo
 {
  color: white;
  font-size:50px;
+ font-family: 'Alex Brush';
+} 
+.navbar-header .logo
+{
+ color: black;
+ font-size:35px;
  font-family: 'Alex Brush';
 } 
 .searchNav .search 

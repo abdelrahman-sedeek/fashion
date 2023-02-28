@@ -33,27 +33,30 @@ Route::middleware('auth')->group(function () {
     
     route::get('/add_watchlist/{product}',[userController::class ,'add_watchlist'])->name('add_watchlist');
     route::get('/show_watchlist',[userController::class ,'show_watchlist'])->name('show_watchlist');
-    route::get('/show_orders',[userController::class ,'show_orders'])->name('show_orders');
     route::post('/delete_watchlist/{cart}',[userController::class ,'delete_cart'])->name('delete_watchlist');
     
     route::get('/cheakout',[userController::class ,'cheakout'])->name('cheakout');
     route::get('/get_order',[userController::class ,'cheakout'])->name('get_order');
     route::post('/add_order',[userController::class ,'add_order'])->name('add_order');
     route::get('/view_order/{order}',[userController::class ,'view_order'])->name('view_order');
-
+    route::get('/show_orders',[userController::class ,'show_orders'])->name('show_orders');
+    
 });
 
 
 
 // ---------------------------------- >admin routes<-------------------------------------//
 Route::middleware(['auth', 'authadmin'])->group(function () {
-
+    
+    route::get('/all_orders',[AdminController::class ,'all_orders'])->name('all_orders');
+    Route::get('/change_to_delevary/{id}',[AdminController::class ,'update_orders'])->name('update_orders');
     Route::get('/category',[AdminController::class ,'view_category'])->name('view_category');
     Route::post('/add_category',[AdminController::class ,'add_category'])->name('add_category');
     Route::get('/delete_category/{id}',[AdminController::class ,'delete_category'])->name('delete_category');
     Route::post('/add_product',[AdminController::class ,'add_product'])->name('add_product');
     Route::get('/add_product',[AdminController::class ,'view_product'])->name('add_product_view');
     Route::get('/dashboard',[AdminController::class ,'dashboard'])->name('dashboard');
+    Route::get('/show_product',[AdminController::class ,'show_product'])->name('showProduct');
     Route::get('/show_product',[AdminController::class ,'show_product'])->name('showProduct');
     Route::get('/delete_product/{id}',[AdminController::class ,'delete_product'])->name('delete_product');
     Route::get('/update_product/{id}',[AdminController::class ,'update_product'])->name('update_product');

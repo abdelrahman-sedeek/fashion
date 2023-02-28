@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
+use App\Models\order;
 use App\Models\product;
 use App\Models\category;
 use Illuminate\Http\Request;
@@ -94,6 +96,16 @@ class AdminController extends Controller
         
         
     }
+    public function update_orders($id)
+    { 
+        $updateProduct=order::find($id);
+        // $Allcategory=category::all();
+        $updateProduct->state='delivered';
+        $updateProduct->save();
+        return redirect()->back()->with('message','status updated successfully');
+        
+        
+    }
     public function confirm_edit_product($id,request $request)
     {
         $validated = $request->validate([
@@ -122,5 +134,14 @@ class AdminController extends Controller
         return redirect()->back()->with('message','product updated sucessfully');
         
     }
+    public function all_orders()
+    {
+        $order=order::with(
+            ['user'=>function($query){
+            $query->orderBy('created_at', 'DESC');
+        }])->get();
+        // dd($user);
+        return view('admin.orders',compact('order'));
 
+    }
 }
