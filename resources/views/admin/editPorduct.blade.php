@@ -58,7 +58,24 @@
                 <input type="number" id="quantity" name="quantity"  class="form-control" value="{{$updateProduct->quantity}}">
             </div>
         </div>
-        
+        <div class="row form-group">
+            <div class="col col-md-3"><label class=" form-control-label">sections</label></div>
+            <div class="col col-md-9">
+                <div class="form-check">
+                    <div class="checkbox">
+                        <label for="checkbox1" class="form-check-label ">
+                            <input type="checkbox" id="Stock_box" name="stock" value="1" {{ ($updateProduct->stock==1) ? 'checked="checked"' : '' }} class="form-check-input">Stock
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="checkbox2" class="form-check-label ">
+                            <input type="checkbox" id="Featured" name="featured" value="1" {{ ($updateProduct->Featured==1) ? 'checked="checked"' : '' }}  class="form-check-input"> Featured
+                        </label>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
         
         
         <div class="row form-group">

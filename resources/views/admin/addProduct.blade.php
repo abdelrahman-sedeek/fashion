@@ -48,7 +48,24 @@
             <div class="col col-md-3"><label for="quantity" class=" form-control-label">quantity</label></div>
             <div class="col-12 col-md-9"><input type="number" id="quantity" name="quantity"  class="form-control"><small class="help-block form-text">Please enter a the quantitiy</small></div>
         </div>
-        
+        <div class="row form-group">
+            <div class="col col-md-3"><label class=" form-control-label">sections</label></div>
+            <div class="col col-md-9">
+                <div class="form-check">
+                    <div class="checkbox">
+                        <label for="checkbox1" class="form-check-label ">
+                            <input type="checkbox" id="Stock_box" name="stock" value="1" class="form-check-input">Stock
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="checkbox2" class="form-check-label ">
+                            <input type="checkbox" id="Featured" name="featured" value="1"  class="form-check-input"> Featured
+                        </label>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
         
         
         <div class="row form-group">
@@ -93,87 +110,9 @@
         </div>
         <button class=" btn btn-primary" type="submit">add product</button>
 
-        {{-- <div class="row form-group">
-            <div class="col col-md-3"><label class=" form-control-label">Radios</label></div>
-            <div class="col col-md-9">
-                <div class="form-check">
-                    <div class="radio">
-                        <label for="radio1" class="form-check-label ">
-                            <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Option 1
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label for="radio2" class="form-check-label ">
-                            <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Option 2
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label for="radio3" class="form-check-label ">
-                            <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input">Option 3
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="row form-group">
-            <div class="col col-md-3"><label class=" form-control-label">Inline Radios</label></div>
-            <div class="col col-md-9">
-                <div class="form-check-inline form-check">
-                    <label for="inline-radio1" class="form-check-label ">
-                        <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input">One
-                    </label>
-                    <label for="inline-radio2" class="form-check-label ">
-                        <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input">Two
-                    </label>
-                    <label for="inline-radio3" class="form-check-label ">
-                        <input type="radio" id="inline-radio3" name="inline-radios" value="option3" class="form-check-input">Three
-                    </label>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="row form-group">
-            <div class="col col-md-3"><label class=" form-control-label">Checkboxes</label></div>
-            <div class="col col-md-9">
-                <div class="form-check">
-                    <div class="checkbox">
-                        <label for="checkbox1" class="form-check-label ">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input">Option 1
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="checkbox2" class="form-check-label ">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" value="option2" class="form-check-input"> Option 2
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="checkbox3" class="form-check-label ">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" value="option3" class="form-check-input"> Option 3
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="row form-group">
-            <div class="col col-md-3"><label class=" form-control-label">Inline Checkboxes</label></div>
-            <div class="col col-md-9">
-                <div class="form-check-inline form-check">
-                    <label for="inline-checkbox1" class="form-check-label ">
-                        <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1" class="form-check-input">One
-                    </label>
-                    <label for="inline-checkbox2" class="form-check-label ">
-                        <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="option2" class="form-check-input">Two
-                    </label>
-                    <label for="inline-checkbox3" class="form-check-label ">
-                        <input type="checkbox" id="inline-checkbox3" name="inline-checkbox3" value="option3" class="form-check-input">Three
-                    </label>
-                </div>
-            </div>
-        </div> --}}
-        
-        {{-- <div class="row form-group">
-            <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Multiple File input</label></div>
-            <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"></div>
-        </div> --}}
+       
+       
+      
     </form>
 </div>
 @include('admin.inc.footer')

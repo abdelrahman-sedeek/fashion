@@ -14,7 +14,7 @@
         {{session()->get('message')}}
       </div>
 @endif
-<form class="categoty_form container align-items-center my-5  " action="{{url('add_category')}}" method="POST">
+<form class="categoty_form container align-items-center my-5  " action="{{route('add_category')}}" method="POST">
     @csrf
     <div class="mb-3 ">
       {{-- <label for="exampleInputEmail1" class="form-label font-weight-bold font-medium  ">Add category</label>
@@ -54,7 +54,7 @@
                 <td>{{$data->category_type}}</td>
                 <td>
                     <a href="" class="btn btn-primary">edit</a>
-                    <a onclick="return confirm('are you sure to delete this item')" href="{{url('delete_category',$data->id)}}" class="btn btn-danger">delete</a>
+                    <a onclick="return confirm('are you sure to delete this item')" href="{{route('delete_category',$data->id)}}" class="btn btn-danger">delete</a>
                 </td>
             </tr>
             @endforeach

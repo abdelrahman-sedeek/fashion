@@ -41,7 +41,7 @@
               <div class="image">
                 <div class="prod_image">
                   <i class="fa-regular fa-eye"></i>
-                  <img src="images/{{$show->product->image}}" class="card-img-top" alt="...">
+                  <img src="{{asset('images')}}/{{$show->product->image}}" class="card-img-top" alt="...">
                 </div>
                 <div class="price">
                   <span>{{$finalPrice}}$</span>

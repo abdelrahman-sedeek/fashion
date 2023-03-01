@@ -14,7 +14,8 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+           
+            <a href="{{route("facebookRedirect")}}"><i class="fa-brands fa-facebook"></i>login with facebook</a>
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />

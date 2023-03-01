@@ -47,7 +47,7 @@
                         <div class="d-flex flex-row align-items-center">
                           <div>
                             <img
-                              src="images/{{$cart->product->image}}"
+                              src="{{asset('images')}}/{{$cart->product->image}}"
                               class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
                           </div>
                           <div class="ms-3">

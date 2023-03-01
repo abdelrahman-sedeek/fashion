@@ -1,6 +1,6 @@
 <section class="section testimonials-section">
     <div class="banner">
-        <img src="assets/imgs/Layer 21.png" alt="" class="w-100" />
+        <img src="{{asset('assets/imgs/Layer 21.png')}}" alt="" class="w-100" />
         <div class="text-box">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="content text-center">
@@ -11,7 +11,7 @@
                         Vestibulum a N Vestibulum a
                     </p>
   
-                    <img class="ceo_image" src="assets/imgs/CEO.jpg" alt="" />
+                    <img class="ceo_image" src="{{asset('assets/imgs/CEO.jpg')}}" alt="" />
   
                     <span class="d-block mt-2 ceo">MR Hambola</span>
                     <span class="d-block job">Ceo Of TTCM</span>

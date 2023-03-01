@@ -21,11 +21,11 @@
       
         <div class="col-lg-3 col-sm-12 col-md-6 {{$show->category->category_type }}  mb-5 product_card ">
             <div class="card  justify-content-center m-auto border-0  " style="width: 85%;">
-             <a href="{{url('/product_details',$show->id)}}">
+             <a href="{{route('product_details',['id'=>$show->id])}}">
               <div class="image">
                 <div class="prod_image">
                   <i class="fa-regular fa-eye"></i>
-                  <img src="images/{{$show->image}}" class="card-img-top" alt="...">
+                  <img src="{{asset('images')}}/{{$show->image}}" class="card-img-top" alt="...">
                 </div>
                 <div class="price">
                   <span>{{$finalPrice}}$</span>

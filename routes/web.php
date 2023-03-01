@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\storeController;
-use App\Http\Controllers\userController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 
 route::get('/',[userController::class ,'index'])->name('home');
+route::get('/trending_items',[userController::class ,'trending_item'])->name('trending_item');
 Route::resource('store',userController::class);
 route::get('/redirect',[userController::class ,'redicert'])->name('redirect');
 route::get('/product_details/{id}',[userController::class ,'product_detail'])->name('product_details');
@@ -43,25 +45,24 @@ Route::middleware('auth')->group(function () {
     
 });
 
-
-
 // ---------------------------------- >admin routes<-------------------------------------//
 Route::middleware(['auth', 'authadmin'])->group(function () {
     
-    route::get('/all_orders',[AdminController::class ,'all_orders'])->name('all_orders');
-    Route::get('/change_to_delevary/{id}',[AdminController::class ,'update_orders'])->name('update_orders');
-    Route::get('/category',[AdminController::class ,'view_category'])->name('view_category');
-    Route::post('/add_category',[AdminController::class ,'add_category'])->name('add_category');
-    Route::get('/delete_category/{id}',[AdminController::class ,'delete_category'])->name('delete_category');
-    Route::post('/add_product',[AdminController::class ,'add_product'])->name('add_product');
-    Route::get('/add_product',[AdminController::class ,'view_product'])->name('add_product_view');
+    route::get('dashborad/all_orders',[AdminController::class ,'all_orders'])->name('all_orders');
+    Route::get('dashborad/change_to_delevary/{id}',[AdminController::class ,'update_orders'])->name('update_orders');
+    Route::get('dashborad/category',[AdminController::class ,'view_category'])->name('view_category');
+    Route::get('dashborad/users',[AdminController::class ,'get_users'])->name('view_users');
+    Route::post('dashborad/add_user',[AdminController::class ,'add_user'])->name('add_user');
+    Route::post('dashborad/add_category',[AdminController::class ,'add_category'])->name('add_category');
+    Route::get('dashborad/delete_category/{id}',[AdminController::class ,'delete_category'])->name('delete_category');
+    Route::post('dashborad/add_product',[AdminController::class ,'add_product'])->name('add_product');
+    Route::get('dashborad/add_product',[AdminController::class ,'view_product'])->name('add_product_view');
     Route::get('/dashboard',[AdminController::class ,'dashboard'])->name('dashboard');
-    Route::get('/show_product',[AdminController::class ,'show_product'])->name('showProduct');
-    Route::get('/show_product',[AdminController::class ,'show_product'])->name('showProduct');
-    Route::get('/delete_product/{id}',[AdminController::class ,'delete_product'])->name('delete_product');
-    Route::get('/update_product/{id}',[AdminController::class ,'update_product'])->name('update_product');
-    Route::post('/confirm_edit_product/{id}',[AdminController::class ,'confirm_edit_product'])->name('confirm_edit_product');
-    
+    Route::get('dashborad/show_product',[AdminController::class ,'show_product'])->name('showProduct');
+    Route::get('dashborad/show_product',[AdminController::class ,'show_product'])->name('showProduct');
+    Route::get('dashborad/delete_product/{id}',[AdminController::class ,'delete_product'])->name('delete_product');
+    Route::get('dashborad/update_product/{id}',[AdminController::class ,'update_product'])->name('update_product');
+    Route::post('dashborad/confirm_edit_product/{id}',[AdminController::class ,'confirm_edit_product'])->name('confirm_edit_product');
 });
 
 Route::middleware([
@@ -70,5 +71,11 @@ Route::middleware([
     'verified'
     ])->group(function () {
 });
+
+
+Route::get('auth/facebook', [SocialController::class, 'facebookRedirect'])->name('facebookRedirect');
+Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook'])->name('loginWithFacebook');
+
+
 
 

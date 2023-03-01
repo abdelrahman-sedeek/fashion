@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fashion </title>
-    <link rel="stylesheet" href="assets/CSS/all.min.css">
-    <link rel="stylesheet" href="assets/CSS/style.css">
-    <link rel="stylesheet" href="assets/CSS/bootstrap/bootstrap.min.css">
+
+    <title>Fashion</title>
+    <link rel="stylesheet" href="{{asset('assets/CSS/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/CSS/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/CSS/bootstrap/bootstrap.min.css')}}">
     <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Finlandica&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{{asset('img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,11 +24,9 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+    
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="details/css/style.css" rel="stylesheet">
+    <link href="{{asset('details/css/style.css')}}" rel="stylesheet">
 
 </head>
 <body>

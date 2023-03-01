@@ -19,11 +19,20 @@ class userController extends Controller
      */
     public function index()
     {
-        $show_product=product::paginate(8);
+        $show_product=product::where('stock',true)->paginate(8);
+        $show_trend_product=product::where('Featured',true)->paginate(8);
         $category=category::all();
-        return view('home.store',compact('show_product','category'));
+        return view('home.store',compact('show_product','category','show_trend_product'));
         
     }
+    public function trending_item()
+    {
+        $show_product=product::where('Featured',true)->paginate(8);
+        
+        return view('home.inc.trending_item',compact('show_product'));
+        
+    }
+
     public function search(request $request)
     {
         $category=category::all();

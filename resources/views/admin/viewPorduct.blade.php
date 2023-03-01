@@ -23,14 +23,15 @@
               <th scope="col">quantity</th> 
               <th scope="col">total price</th>
               <th scope="col">image</th>
+              @can('admin')
               <th scope="col">action</th>
+              @endcan
             </tr>
           </thead>
           <tbody>
               
-              <?php
-               $counter=1; 
-              ?>
+              @php($counter=1)
+                
               @foreach ($show as $show )
               
               <tr >
@@ -44,12 +45,15 @@
                   <td>{{$show->quantity}}</td>
                   <td>{{$show->product_price - $show->discount_price}}</td>
                   <td>
-                    <img src="/images/{{$show->image}}" alt="">
+                    <img src="{{asset('/images')}}/{{$show->image}}" alt="">
                   </td>
+                  @can('admin')  
                   <td class="d-flex justify-con">
-                      <a href="{{route('update_product',$show->id)}}" class="btn btn-primary mx-3 "style="display: inline"  >edit</a>
-                      <a  style="display: inline"  onclick="return confirm('are you sure to delete this item')" href="{{route('delete_product',$show->id)}}" class="btn btn-danger mx-2">delete</a>
+                    <a href="{{route('update_product',$show->id)}}" class="btn btn-primary mx-3 "style="display: inline"  >edit</a>
+                    <a  style="display: inline"  onclick="return confirm('are you sure to delete this item')" href="{{route('delete_product',$show->id)}}" class="btn btn-danger mx-2">delete</a>
                   </td>
+                  @endcan
+                  
                   <td>
                       
                   </td>

@@ -6,6 +6,7 @@ use App\Models\order;
 use App\Models\product;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,10 +16,31 @@ class AdminController extends Controller
     public function view_category()
     {
         $data=category::all();
-
+        
         return view('admin.category',compact('data'));
         
     }
+    public function get_users()
+    {
+        $data=User::all();
+        
+        return view('admin.users',compact('data'));
+    }
+    public function add_user(request $request)
+    {
+        $password=hash::make($request->password);
+       
+        User::create([
+            'name'=>$request->name,
+            'password'=>hash::make($request->password),
+            'email'=>$request->email,
+            'userType'=>$request->get('userType'),
+            
+            
+        ]);
+        return redirect()->back()->with('message', 'user added successfully');
+    }
+    
     public function dashboard()
     {
 
@@ -51,6 +73,8 @@ class AdminController extends Controller
             'category_id' => 'required',
             'discount_price' => '',
             'product_price' => 'required',
+            'featured'=>'',
+            'stock'=>'',
             'size' => 'required ',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:4000',
             
@@ -62,7 +86,9 @@ class AdminController extends Controller
         //  product::create($validated);
          $product=new product($validated);
          $product->image = $imageName;
+        
          $product->save();
+         
         return redirect()->back()->with('message','product added sucessfully');
 
     }
@@ -126,6 +152,8 @@ class AdminController extends Controller
         $product->quantity=$request->quantity;
         $product->discount_price=$request->discount_price;
         $product->size=$request->size;
+        $product->stock=$request->stock;
+        $product->Featured=$request->featured;
         $product->category_id=$request->category_id;
        
         // $product->product_name=$request->product_name;

@@ -23,7 +23,7 @@
             <div  class="" >
                 <div class=" border">
                     <div class=" active max-h-32">
-                        <img class="w-100 h-50" src="images/{{$product->image}} " alt="Image">
+                        <img class="w-100 h-50" src="{{asset('images')}}/{{$product->image}} " alt="Image">
                     </div>
                    
                 </div>

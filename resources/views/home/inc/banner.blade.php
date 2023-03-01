@@ -2,7 +2,7 @@
 <section class="offer-section">
     <div class="row banners g-0">
         <div class="banner-1 col-12 col-md-6">
-            <img src="assets/imgs/banner-1.png" alt="" />
+            <img src="{{asset('assets/imgs/banner-1.png')}}" alt="" />
             <div class="arrow-up"></div>
             <div class="overlay"></div>
             <div class="text-box">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="banner-2 col-md-6">
-            <img src="assets/imgs/banner-2.png" alt="" />
+            <img src="{{asset('assets/imgs/banner-2.png')}}" alt="" />
             <div class="arrow-down"></div>
             <div class="overlay"></div>
             <div class="text-box">
