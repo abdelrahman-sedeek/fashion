@@ -21,7 +21,7 @@ class userController extends Controller
     {
         $show_product=product::where('stock',true)->paginate(8);
         $show_trend_product=product::where('Featured',true)->paginate(8);
-        $category=category::all();
+        $category=category::take(3)->get();
         return view('home.store',compact('show_product','category','show_trend_product'));
         
     }
@@ -217,8 +217,8 @@ class userController extends Controller
     }
     public function view_order(order $order)
     {
-
-        if(!$order->user_id==Auth::user()->id)
+        // dd($user->id,Auth::user()->userType);
+        if($order->user_id!=Auth::user()->id&&Auth::user()->userType=='user')
         {
             return abort(403, 'Unauthorized action.');
             

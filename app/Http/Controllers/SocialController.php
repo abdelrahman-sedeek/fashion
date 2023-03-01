@@ -17,6 +17,7 @@ class SocialController extends Controller
     public function loginWithFacebook()
     {
         if (Auth::check()) {
+
             return redirect()->route('home');
         }
         $facebook = Socialite::driver('facebook')->user();
@@ -35,7 +36,13 @@ class SocialController extends Controller
 
         );
         Auth::login($user);
+        
+        if($user->userType!='user'){
+            return redirect()->route('dashboard');
+        } 
+        
         return redirect()->route('home');
+
         
     }
     

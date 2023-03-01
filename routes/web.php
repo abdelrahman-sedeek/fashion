@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\storeController;
+use App\Models\category;
 use App\Http\Controllers\SocialController;
 
 /*
@@ -48,16 +49,18 @@ Route::middleware('auth')->group(function () {
 // ---------------------------------- >admin routes<-------------------------------------//
 Route::middleware(['auth', 'authadmin'])->group(function () {
     
+    Route::get('/dashboard',[AdminController::class ,'dashboard'])->name('dashboard');
     route::get('dashborad/all_orders',[AdminController::class ,'all_orders'])->name('all_orders');
     Route::get('dashborad/change_to_delevary/{id}',[AdminController::class ,'update_orders'])->name('update_orders');
     Route::get('dashborad/category',[AdminController::class ,'view_category'])->name('view_category');
     Route::get('dashborad/users',[AdminController::class ,'get_users'])->name('view_users');
     Route::post('dashborad/add_user',[AdminController::class ,'add_user'])->name('add_user');
+    Route::post('dashborad/edit_user',[AdminController::class ,'edit_user'])->name('edit_user');
+    Route::post('dashborad/delete_user',[AdminController::class ,'delete_user'])->name('delete_user');
     Route::post('dashborad/add_category',[AdminController::class ,'add_category'])->name('add_category');
     Route::get('dashborad/delete_category/{id}',[AdminController::class ,'delete_category'])->name('delete_category');
     Route::post('dashborad/add_product',[AdminController::class ,'add_product'])->name('add_product');
     Route::get('dashborad/add_product',[AdminController::class ,'view_product'])->name('add_product_view');
-    Route::get('/dashboard',[AdminController::class ,'dashboard'])->name('dashboard');
     Route::get('dashborad/show_product',[AdminController::class ,'show_product'])->name('showProduct');
     Route::get('dashborad/show_product',[AdminController::class ,'show_product'])->name('showProduct');
     Route::get('dashborad/delete_product/{id}',[AdminController::class ,'delete_product'])->name('delete_product');

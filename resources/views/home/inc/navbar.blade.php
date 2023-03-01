@@ -11,27 +11,26 @@
                         <a class="nav-link active" style="color:#e13ed7;" aria-current="page" href="{{route('home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Women</a>
+                        <a class="nav-link" href="{{route('home')}}">Women</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Men</a>
+                        <a class="nav-link" href="{{route('home')}}">Men</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Foot wear</a>
+                        <a class="nav-link" href="{{route('home')}}">Foot wear</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('home')}}">Accesssories</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accesssories</a>
+                        <a class="nav-link" href="{{route('home')}}">sales</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">sales</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="{{route('home')}}">Blog</a>
                     </li>
 
                 </ul>

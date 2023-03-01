@@ -1,3 +1,4 @@
+
         {{-- strat header section --}}
         @include('home.inc.header')
         @include('home.inc.search')

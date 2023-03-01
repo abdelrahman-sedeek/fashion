@@ -26,6 +26,22 @@ class AdminController extends Controller
         
         return view('admin.users',compact('data'));
     }
+    public function edit_user(request $request)
+    {
+        $user=user::findOrFail($request->user_id);
+        
+        $user->name=$request->name;
+        $user->userType=$request->userType;
+        $user->save();
+        return redirect()->back()->with('message','user changed successfully'); 
+        
+    }
+    public function delete_user(request $request)
+    {
+        user::destroy($request->user_id);
+        return redirect()->back()->with('message','user deleted successfully');
+    }
+
     public function add_user(request $request)
     {
         $password=hash::make($request->password);

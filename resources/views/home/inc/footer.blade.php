@@ -10,9 +10,8 @@
                   <h3 class="footer-title mb-4">Categories</h3>
                   <ul class="list nav flex-column">
 
-                                                      <li class="list-item"><a class="item"
-                                  href="">Men</a>
-                          </li
+                        <li class="list-item"><a class="item" href="">Men</a>
+</li
                                                       <li class="list-item"><a class="item"
                                   href="">Women</a>
                           </li>

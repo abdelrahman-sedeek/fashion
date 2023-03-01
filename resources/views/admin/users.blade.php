@@ -31,12 +31,12 @@
                         @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Name</label>
-                          <input type="text" name="name" class="form-control" id="exampleInputEmail1" >
+                          <input type="text" name="name" class="form-control" id="name-text" >
                          
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <input type="email" name="email" class="form-control" id="email-text" aria-describedby="emailHelp">
                          
                         </div>
                         <div class="form-group">
@@ -92,12 +92,12 @@
                               <td>{{$users->email}}</td>
                               <td>{{$users->address}}</td>
                               <td>{{$users->phone}}</td>
-                              <td>{{$users->userType}}</td>
+                              <td>{{$users->goodType()}}</td>
                             @can('admin')
                                 
                             <td> 
-                                <button  type="button" class="btn btn-primary"  data-toggle="modal" data-target="#deleteUserModal"><i class="fas fa-marker "></i>   </button>
-                                <button  type="button" class="btn btn-danger"  data-toggle="modal" data-target="#editUserModal"><i class="fas fa-trash"></i>   </button>
+                              <button  type="button" class="btn btn-primary" onclick="editUser({{$users->id}},'{{$users->name}}','{{$users->userType}}')"   data-toggle="modal" data-target="#editUserModal"> <i class="fas fa-marker "></i>  </button>
+                              <button  type="button"  class="btn btn-danger" onclick="deleteUser({{$users->id}})" data-toggle="modal" data-target="#deleteUserModal"><i class="fas fa-trash"></i>   </button>
                                 
                             </td>
                             @endcan
@@ -119,18 +119,18 @@
           <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
         </div>
         <div class="modal-body">
-            <form action="{{route('Edit_user')}}" method="POST">
+            <form action="{{route('edit_user')}}" method="POST">
                 @csrf
+                <input type="hidden" name="user_id" id="user_id" value="">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="exampleInputEmail1" >
-                 
+                  <input type="text" name="name" class="form-control" id="name" >
                 </div>
                 
                 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">User type</label>
-                    <select name="userType" class="form-control" id="select">
+                    <select name="userType" class="form-control" id="userType">
                       <option value="admin">Admin</option>
                       <option value="mod">Moderator</option>
                       <option value="user">User</option>
@@ -146,4 +146,39 @@
       </div>
     </div>
   </div>
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"  id="exampleModalLabel">Delete User</h5>
+        </div>
+        <div class="modal-body">
+            <form action="{{route('delete_user')}}" method="POST">
+                @csrf
+                <input type="hidden" name="user_id" id="delete_id" value="">
+                <h4 class=" my-2">Are you Sure ?</h4>
+              </div>
+              <div class="modal-footer">
+                <button type="submit"  class="btn btn-danger">Yes</button>
+            </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function editUser(id,userName,type){ 
+     document.getElementById('user_id').value= id;
+     document.getElementById('name').value= userName;
+     document.getElementById('userType').value= type;
+     console.log('hi')
+    }
+    function deleteUser(id)
+    {
+      document.getElementById('delete_id').value= id;
+
+    }
+    
+  </script>
 @include('admin.inc.footer')

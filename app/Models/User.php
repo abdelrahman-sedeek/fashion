@@ -72,4 +72,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(order::class);
     }
+    public function goodType()
+    {
+        switch ($this->userType){
+            case 'admin':
+                return 'Admin';
+                break;
+            case 'mod':
+                return 'Moderator';
+                break;
+            default:
+                return 'User';
+                break;
+        }
+    }
+    
 }
