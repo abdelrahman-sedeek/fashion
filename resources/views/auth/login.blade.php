@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <span class="logo">Fashion</span>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -15,7 +15,7 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
            
-            <a href="{{route("facebookRedirect")}}"><i class="fa-brands fa-facebook"></i>login with facebook</a>
+            <a href="{{route("facebookRedirect")}}"><i class="fa-brands fa-facebook " ></i>login with facebook</a>
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />

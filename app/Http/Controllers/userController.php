@@ -127,7 +127,7 @@ class userController extends Controller
             'watchlist'=>true,
 
         ]);
-        return redirect()->back();
+        return view('home.watchlist');
     }
 
     public function show_watchlist(Request $request)

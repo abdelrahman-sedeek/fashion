@@ -29,19 +29,29 @@
               <div class="col-12 col-md-4">
                   <h3 class="footer-title mb-4">Customer Service</h3>
                   <ul class="list nav flex-column">
+                    @auth
+                        
+                    <li class="list-item">
+                        <a href="" class="item">My Orders</a>
+                    </li>
+                    <li class="list-item"><a href="" class="item">Cart</a></li>
+                    <li class="list-item"><a href="" class="item">Wishlist</a>
+                    </li>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <li class="list-item"><a class="item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                        </li>
+                    </form>
 
-                      <li class="list-item">
-                          <a href="" class="item">My Orders</a>
-                      </li>
-                      <li class="list-item"><a href="" class="item">Cart</a></li>
-                      <li class="list-item"><a href="" class="item">Wishlist</a>
-                      </li>
-                        <form action="" method="POST">
-                            @csrf
-                            <li class="list-item"><a class="item" href=""
-                                      onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
-                              </li>
-                        </form>
+                    @else
+                    <li class="list-item"><a class="item" href="{{ route('login') }}"
+                        onclick="event.preventDefault(); this.closest('form').submit();">Login</a>
+                    </li>
+                    <li class="list-item"><a class="item" href="{{ route('register') }}"
+                        onclick="event.preventDefault(); this.closest('form').submit();">Regester</a>
+                    </li>
+                    @endauth
                     </ul>
               </div>
               <div class="col-12 col-md-4">

@@ -31,6 +31,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->userType == 'admin';
        
         });
+        Gate::define('mod', function (User $user) {
+            return $user->userType == 'mod';
+       
+        });
 
     }
 }

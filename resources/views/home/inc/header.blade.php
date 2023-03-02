@@ -54,7 +54,7 @@
                               
                                 <li class="nav-item">
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">my account</a></li>
+                                  {{-- <li><a class="dropdown-item" href="#">my account</a></li> --}}
                                   <li><a class="dropdown-item" href="{{route('show_watchlist')}}">watchlist</a></li>
                                   <li><a class="dropdown-item" href="{{route('show_orders')}}">My Orders</a></li>
                                 </ul>
@@ -65,8 +65,15 @@
                              
                               
                               <a class="nav-link active" style="color:#e13ed7;" aria-current="page" href="{{route('show_cart')}}">
-                                <i class="fa-solid fa-cart-shopping"></i> my cart
+                                <i class="fa-solid fa-cart-shopping"></i> My Cart
                             </a>
+                            
+                                @if (Auth()->user()->userType!='user')
+                                    
+                                <a class="nav-link active"  aria-current="page" href="{{route('dashboard')}}">
+                                    <i style="color:#e13ed7" class="fa-solid fa-gauge-high"></i>  Dashboard
+                                </a>
+                                @endif
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                
