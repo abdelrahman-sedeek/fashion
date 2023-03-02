@@ -45,11 +45,9 @@
                     </form>
 
                     @else
-                    <li class="list-item"><a class="item" href="{{ route('login') }}"
-                        onclick="event.preventDefault(); this.closest('form').submit();">Login</a>
+                    <li class="list-item"><a class="item" href="{{ route('login') }}">Login</a>
                     </li>
-                    <li class="list-item"><a class="item" href="{{ route('register') }}"
-                        onclick="event.preventDefault(); this.closest('form').submit();">Regester</a>
+                    <li class="list-item"><a class="item" href="{{ route('register') }}">Regester</a>
                     </li>
                     @endauth
                     </ul>
