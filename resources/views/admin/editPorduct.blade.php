@@ -107,7 +107,7 @@
         </div>
         <div class="row form-group my-5 ">
             <div class="col col-md-3  "><label for="image" class=" form-control-label align-middle">currant image</label></div>
-            <img style="max-height:300px" src="/images/{{$updateProduct->image}}" alt="">
+            <img style="max-height:300px" src="{{asset('/images')}}/{{$updateProduct->image}}" alt="">
         </div>
         <div class="row form-group">
             <div class="col col-md-3"><label for="image" class=" form-control-label"> change image</label></div>
