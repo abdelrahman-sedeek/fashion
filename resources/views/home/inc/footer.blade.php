@@ -22,7 +22,7 @@
                     @auth
                         
                     <li class="list-item">
-                        <a href="" class="item">My Orders</a>
+                        <a href="{{route('show_orders')}}" class="item">My Orders</a>
                     </li>
                     <li class="list-item"><a href="{{route('show_cart')}}" class="item">Cart</a></li>
                     <li class="list-item"><a href="{{route('show_watchlist')}}" class="item">Wishlist</a>
