@@ -10,21 +10,11 @@
                   <h3 class="footer-title mb-4">Categories</h3>
                   <ul class="list nav flex-column">
 
-                        <li class="list-item"><a class="item" href="">Men</a>
-</li
-                                                      <li class="list-item"><a class="item"
-                                  href="">Women</a>
-                          </li>
-                                                      <li class="list-item"><a class="item"
-                                  href="">Kids</a>
-                          </li>
-                                                      <li class="list-item"><a class="item"
-                                  href="">est voluptate</a>
-                          </li>
-                                                      <li class="list-item"><a class="item"
-                                  href="">exercitationem quibusdam</a>
-                          </li>
-                                              </ul>
+                        <li class="list-item"><a class="item" href="">Men</a></li>
+                        <li class="list-item"><a class="item"href="">Women</a></li>
+                        <li class="list-item"><a class="item"href="">Kids</a></li>
+                                                  
+                    </ul>
               </div>
               <div class="col-12 col-md-4">
                   <h3 class="footer-title mb-4">Customer Service</h3>
