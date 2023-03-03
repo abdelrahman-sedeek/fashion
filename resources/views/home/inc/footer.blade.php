@@ -24,8 +24,8 @@
                     <li class="list-item">
                         <a href="" class="item">My Orders</a>
                     </li>
-                    <li class="list-item"><a href="" class="item">Cart</a></li>
-                    <li class="list-item"><a href="" class="item">Wishlist</a>
+                    <li class="list-item"><a href="{{route('show_cart')}}" class="item">Cart</a></li>
+                    <li class="list-item"><a href="{{route('show_watchlist')}}" class="item">Wishlist</a>
                     </li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

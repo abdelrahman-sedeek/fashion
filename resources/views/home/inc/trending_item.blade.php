@@ -60,10 +60,7 @@
           </div>
             
           @endforeach
-          <span class=" m-auto p-2 d-flex justify-content-center">
-            {{$show_product->links()}}
-
-          </span>
+          
          
         </div>
       </div>
