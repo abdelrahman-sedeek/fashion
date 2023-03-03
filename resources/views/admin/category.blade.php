@@ -53,7 +53,7 @@
                 <th scope="row">{{$counter++}}</th>
                 <td>{{$data->category_type}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">edit</a>
+                    {{-- <a href="" class="btn btn-primary">edit</a> --}}
                     <a onclick="return confirm('are you sure to delete this item')" href="{{route('delete_category',$data->id)}}" class="btn btn-danger">delete</a>
                 </td>
             </tr>
