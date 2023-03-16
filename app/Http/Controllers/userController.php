@@ -35,10 +35,10 @@ class userController extends Controller
 
     public function search(request $request)
     {
-        $category=category::all();
+        // $category=category::all();
         $search_text=$request->search;
-        $show_product=product::join('categories','category_id','categories.id')->where('product_name','LIKE',"%$search_text%")->orWhere('category_type','LIKE',"$search_text%")->paginate(8);
-        return view('home.search_result',compact('show_product','category','search_text'));
+        $show_product=product::join('categories','category_id','categories.id')->where('category_type','LIKE',"$search_text%")->orWhere('product_name','LIKE',"%$search_text%")->selectRaw('products.*')->paginate(8);
+        return view('home.search_result',compact('show_product','search_text'));
     }
 
     public function redicert()

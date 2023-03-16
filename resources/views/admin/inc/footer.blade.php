@@ -8,7 +8,7 @@
                 Copyright &copy; fashion
             </div>
             <div class="col-sm-6 text-right">
-                Designed by <a href="">abdelraham sedeek</a>
+                developed by <a href="https://www.facebook.com/dg.bebo.3/" target="blank">abdelraham sedeek</a>
             </div>
         </div>
     </div>

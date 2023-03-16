@@ -25,8 +25,7 @@
                   $dicountPrecent=($show->discount_price /$show->product_price) * 100;
                   $dicountPrecent=round($dicountPrecent, 0);
                   @endphp
-        
-              
+                
                 <div class="col-lg-3 col-sm-12 col-md-6 {{$show->category->category_type }}  mb-5 product_card ">
                     <div class="card  justify-content-center m-auto border-0  " style="width: 85%;">
                      <a href="{{url('/product_details',$show->id)}}">

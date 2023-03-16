@@ -29,26 +29,26 @@ route::get('/product_details/{id}',[userController::class ,'product_detail'])->n
 route::get('/search',[userController::class ,'search'])->name('search');
 
 Route::middleware('auth')->group(function () {
-    
+
     route::post('/add_cart/{product}',[userController::class ,'add_cart'])->name('add_cart');
     route::post('/delete_cart/{cart}',[userController::class ,'delete_cart'])->name('delete_cart');
     route::get('/my_cart',[userController::class ,'show_cart'])->name('show_cart');
-    
+
     route::get('/add_watchlist/{product}',[userController::class ,'add_watchlist'])->name('add_watchlist');
     route::get('/show_watchlist',[userController::class ,'show_watchlist'])->name('show_watchlist');
     route::post('/delete_watchlist/{cart}',[userController::class ,'delete_cart'])->name('delete_watchlist');
-    
+
     route::get('/cheakout',[userController::class ,'cheakout'])->name('cheakout');
     route::get('/get_order',[userController::class ,'cheakout'])->name('get_order');
     route::post('/add_order',[userController::class ,'add_order'])->name('add_order');
     route::get('/view_order/{order}',[userController::class ,'view_order'])->name('view_order');
     route::get('/show_orders',[userController::class ,'show_orders'])->name('show_orders');
-    
+
 });
 
 // ---------------------------------- >admin routes<-------------------------------------//
 Route::middleware(['auth', 'authadmin'])->group(function () {
-    
+
     Route::get('/dashboard',[AdminController::class ,'dashboard'])->name('dashboard');
     route::get('dashborad/all_orders',[AdminController::class ,'all_orders'])->name('all_orders');
     Route::get('dashborad/change_to_delevary/{id}',[AdminController::class ,'update_orders'])->name('update_orders');
@@ -74,7 +74,6 @@ Route::middleware([
     'verified'
     ])->group(function () {
 });
-
 
 Route::get('auth/facebook', [SocialController::class, 'facebookRedirect'])->name('facebookRedirect');
 Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook'])->name('loginWithFacebook');
