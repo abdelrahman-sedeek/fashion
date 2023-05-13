@@ -33,7 +33,7 @@
     <div class="page ">
       
         
-        <div class="navBar ">
+        <div class="mainNav ">
             
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container ">
